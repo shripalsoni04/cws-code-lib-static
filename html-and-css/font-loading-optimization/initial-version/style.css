@@ -1,0 +1,9 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.default-text {
+  font-family: sans-serif;
+  border: 3px dashed grey;
+  padding: 15px;
+}
