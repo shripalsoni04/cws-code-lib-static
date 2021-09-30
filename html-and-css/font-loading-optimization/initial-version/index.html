@@ -1,39 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <base href="/html-and-css/font-loading-optimization/initial-version/" />
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Font Loading Exercise</title>
-  <link rel="stylesheet" href="./style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900" rel="stylesheet">
-</head>
-<body>
-  <h1>Font Loading Optimization Exercise</h1>
-  <p>
-    In this exercise we will try to optimise font loading in our website for better UX.
-  </p>
-  <p class="default-text">This is written with system sans-serif font and this is <a href="https://www.google.com">Test link</a>. <br/>All other text is in custom font: <b>Inter</b></p>
-  <h2>Image</h2>
-  <div>
-    <img src="https://images.unsplash.com/photo-1632861580980-ba4bc45c9076?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Image 1"/>
-  </div>
-  <h2>Dummy Text</h2>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar ex tortor, a euismod nisi dictum id. Vestibulum vitae luctus diam. Cras hendrerit vulputate enim, nec sagittis elit sodales quis. Nulla a ante quis erat pellentesque gravida. Morbi eleifend turpis suscipit nisl lobortis condimentum eget sed dolor. Donec ligula diam, bibendum vel tincidunt eget, lobortis sit amet metus. Quisque tincidunt, sapien aliquam mattis viverra, massa sapien pulvinar ipsum, efficitur aliquet nisl metus eu est. Sed justo tortor, eleifend eget sem quis, tempor consectetur metus. Curabitur eu lobortis velit. Donec at lacinia lectus.
-  </p>
-  <p>
-    Nullam vehicula turpis nec nibh efficitur porta. Nullam tincidunt rutrum ligula, in hendrerit nisi pharetra ut. Vivamus nec libero ac risus congue congue in gravida augue. Nam tempus id lorem et rhoncus. Ut tempor nunc nisl, blandit auctor risus maximus et. Nam vitae arcu quis nulla bibendum hendrerit et pharetra sem. Donec ut elit vel odio posuere accumsan. Mauris finibus, tortor ac hendrerit mattis, magna metus gravida nisi, nec imperdiet eros justo et felis. Aliquam ligula quam, consequat at eros vel, porttitor imperdiet neque. Mauris augue sem, consequat et metus nec, rhoncus fringilla sem. Proin a dictum dui.
-  </p>
-  <p>
-    Suspendisse porttitor sed risus a semper. Etiam ac magna efficitur, scelerisque neque at, maximus nulla. Donec nec dignissim mauris. Suspendisse tincidunt dui quis lectus dictum sagittis. Vivamus sed turpis consequat, hendrerit nulla a, venenatis lacus. Fusce maximus enim ac efficitur faucibus. Pellentesque enim purus, varius non tortor lobortis, tincidunt tincidunt lorem. Suspendisse vel quam pulvinar, viverra nisi eu, fringilla dolor. Vivamus quis neque quis lectus dictum pretium.
-  </p>
-  <p>
-    Mauris quis lacus nulla. Aenean quis finibus urna. Proin porta sem quis quam egestas, quis tristique dui condimentum. Praesent in justo metus. Maecenas congue at nisi et ullamcorper. Donec semper, leo vel sagittis luctus, dolor massa molestie urna, eu hendrerit eros ante ac sapien. Quisque blandit ante sem, a gravida dolor finibus eget. Aliquam pulvinar leo non eros tincidunt, vitae blandit justo aliquet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam eu consectetur arcu. Mauris venenatis efficitur aliquam. Etiam rutrum pretium lectus, a maximus ante.
-  </p>
-  <p>
-    Nullam in sapien at diam facilisis consequat. Aliquam vehicula commodo nibh, vel suscipit lacus pharetra rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at pulvinar nibh. Vestibulum a varius nibh, ut luctus est. Morbi non nunc sit amet massa tincidunt convallis sodales ac tortor. Vestibulum eleifend efficitur dictum. In tincidunt lectus a nisi bibendum, ut lobortis felis tincidunt. Praesent aliquet diam eu lacus bibendum interdum in quis nulla. Phasellus eu odio eu nibh interdum mollis eleifend nec nunc. Nulla aliquet enim dui, eu auctor ligula consequat a. Sed nec varius odio, id viverra justo. Aenean sit amet sodales magna. Quisque vel augue at libero condimentum volutpat in eget erat. Etiam pellentesque dui sed vestibulum finibus.
-  </p>
-</body>
+  <head>
+    <base href="/html-and-css/font-loading-optimization/initial-version/" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font Loading Exercise</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      /* cyrillic-ext */
+      @font-face {
+        font-family: "Inter";
+        font-style: oblique 0deg 10deg;
+        font-weight: 100 900;
+        src: url(https://fonts.gstatic.com/s/inter/v3/UcCo3FwrK3iLTcvvYwYZ8UA3J58.woff2)
+          format("woff2");
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+      }
+      /* cyrillic */
+      @font-face {
+        font-family: "Inter";
+        font-style: oblique 0deg 10deg;
+        font-weight: 100 900;
+        src: url(https://fonts.gstatic.com/s/inter/v3/UcCo3FwrK3iLTcvmYwYZ8UA3J58.woff2)
+          format("woff2");
+        unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+      }
+      /* greek-ext */
+      @font-face {
+        font-family: "Inter";
+        font-style: oblique 0deg 10deg;
+        font-weight: 100 900;
+        src: url(https://fonts.gstatic.com/s/inter/v3/UcCo3FwrK3iLTcvuYwYZ8UA3J58.woff2)
+          format("woff2");
+        unicode-range: U+1F00-1FFF;
+      }
+      /* greek */
+      @font-face {
+        font-family: "Inter";
+        font-style: oblique 0deg 10deg;
+        font-weight: 100 900;
+        src: url(https://fonts.gstatic.com/s/inter/v3/UcCo3FwrK3iLTcvhYwYZ8UA3J58.woff2)
+          format("woff2");
+        unicode-range: U+0370-03FF;
+      }
+      /* vietnamese */
+      @font-face {
+        font-family: "Inter";
+        font-style: oblique 0deg 10deg;
+        font-weight: 100 900;
+        src: url(https://fonts.gstatic.com/s/inter/v3/UcCo3FwrK3iLTcvtYwYZ8UA3J58.woff2)
+          format("woff2");
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Inter";
+        font-style: oblique 0deg 10deg;
+        font-weight: 100 900;
+        src: url(https://fonts.gstatic.com/s/inter/v3/UcCo3FwrK3iLTcvsYwYZ8UA3J58.woff2)
+          format("woff2");
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+          U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Inter";
+        font-style: oblique 0deg 10deg;
+        font-weight: 100 900;
+        src: url(https://fonts.gstatic.com/s/inter/v3/UcCo3FwrK3iLTcviYwYZ8UA3.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Font Loading Optimization Exercise</h1>
+    <p>
+      In this exercise we will try to optimise font loading in our website for
+      better UX.
+    </p>
+    <p class="default-text">
+      This is written with system sans-serif font and this is
+      <a href="https://www.google.com">Test link</a>. <br />All other text is in
+      custom font: <b>Inter</b>
+    </p>
+    <h2>Image</h2>
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1632861580980-ba4bc45c9076?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+        alt="Image 1"
+      />
+    </div>
+    <h2>Dummy Text</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+      pulvinar ex tortor, a euismod nisi dictum id. Vestibulum vitae luctus
+      diam. Cras hendrerit vulputate enim, nec sagittis elit sodales quis. Nulla
+      a ante quis erat pellentesque gravida. Morbi eleifend turpis suscipit nisl
+      lobortis condimentum eget sed dolor. Donec ligula diam, bibendum vel
+      tincidunt eget, lobortis sit amet metus. Quisque tincidunt, sapien aliquam
+      mattis viverra, massa sapien pulvinar ipsum, efficitur aliquet nisl metus
+      eu est. Sed justo tortor, eleifend eget sem quis, tempor consectetur
+      metus. Curabitur eu lobortis velit. Donec at lacinia lectus.
+    </p>
+    <p>
+      Nullam vehicula turpis nec nibh efficitur porta. Nullam tincidunt rutrum
+      ligula, in hendrerit nisi pharetra ut. Vivamus nec libero ac risus congue
+      congue in gravida augue. Nam tempus id lorem et rhoncus. Ut tempor nunc
+      nisl, blandit auctor risus maximus et. Nam vitae arcu quis nulla bibendum
+      hendrerit et pharetra sem. Donec ut elit vel odio posuere accumsan. Mauris
+      finibus, tortor ac hendrerit mattis, magna metus gravida nisi, nec
+      imperdiet eros justo et felis. Aliquam ligula quam, consequat at eros vel,
+      porttitor imperdiet neque. Mauris augue sem, consequat et metus nec,
+      rhoncus fringilla sem. Proin a dictum dui.
+    </p>
+    <p>
+      Suspendisse porttitor sed risus a semper. Etiam ac magna efficitur,
+      scelerisque neque at, maximus nulla. Donec nec dignissim mauris.
+      Suspendisse tincidunt dui quis lectus dictum sagittis. Vivamus sed turpis
+      consequat, hendrerit nulla a, venenatis lacus. Fusce maximus enim ac
+      efficitur faucibus. Pellentesque enim purus, varius non tortor lobortis,
+      tincidunt tincidunt lorem. Suspendisse vel quam pulvinar, viverra nisi eu,
+      fringilla dolor. Vivamus quis neque quis lectus dictum pretium.
+    </p>
+    <p>
+      Mauris quis lacus nulla. Aenean quis finibus urna. Proin porta sem quis
+      quam egestas, quis tristique dui condimentum. Praesent in justo metus.
+      Maecenas congue at nisi et ullamcorper. Donec semper, leo vel sagittis
+      luctus, dolor massa molestie urna, eu hendrerit eros ante ac sapien.
+      Quisque blandit ante sem, a gravida dolor finibus eget. Aliquam pulvinar
+      leo non eros tincidunt, vitae blandit justo aliquet. Orci varius natoque
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam eu
+      consectetur arcu. Mauris venenatis efficitur aliquam. Etiam rutrum pretium
+      lectus, a maximus ante.
+    </p>
+    <p>
+      Nullam in sapien at diam facilisis consequat. Aliquam vehicula commodo
+      nibh, vel suscipit lacus pharetra rhoncus. Vestibulum ante ipsum primis in
+      faucibus orci luctus et ultrices posuere cubilia curae; Sed at pulvinar
+      nibh. Vestibulum a varius nibh, ut luctus est. Morbi non nunc sit amet
+      massa tincidunt convallis sodales ac tortor. Vestibulum eleifend efficitur
+      dictum. In tincidunt lectus a nisi bibendum, ut lobortis felis tincidunt.
+      Praesent aliquet diam eu lacus bibendum interdum in quis nulla. Phasellus
+      eu odio eu nibh interdum mollis eleifend nec nunc. Nulla aliquet enim dui,
+      eu auctor ligula consequat a. Sed nec varius odio, id viverra justo.
+      Aenean sit amet sodales magna. Quisque vel augue at libero condimentum
+      volutpat in eget erat. Etiam pellentesque dui sed vestibulum finibus.
+    </p>
+  </body>
 </html>
