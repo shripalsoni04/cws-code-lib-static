@@ -1,0 +1,25 @@
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.default-text {
+  font-family: sans-serif;
+  border: 3px dashed grey;
+  padding: 15px;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-extra-bold {
+  font-weight: 900;
+}
+
+.text-italic {
+  font-style: italic;
+}
