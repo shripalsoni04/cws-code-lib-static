@@ -8,10 +8,14 @@ body {
   padding: 15px;
 }
 
+.text-light {
+  font-weight: 300;
+}
+
 .text-bold {
   font-weight: 700;
 }
 
-.text-italic {
-  font-style: italic;
+.text-extra-bold {
+  font-weight: 900;
 }

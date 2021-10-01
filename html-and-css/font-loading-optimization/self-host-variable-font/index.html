@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="/html-and-css/font-loading-optimization/self-host/" />
+    <base href="/html-and-css/font-loading-optimization/self-host-variable-font/" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +12,7 @@
         font-style: oblique 0deg 10deg;
         font-weight: 100 900;
         font-display: fallback;
-        src: url("./inter-latin-variable-full-font.woff2") format("woff2");
+        src: url("./fonts/inter-latin-variable-full-font.woff2") format("woff2");
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
           U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
           U+2212, U+2215, U+FEFF, U+FFFD;
@@ -26,7 +26,9 @@
       In this exercise we will try to optimise font loading in our website for
       better UX.
     </p>
+    <p class="text-light">This is light text</p>
     <p class="text-bold">This is bold text.</p>
+    <p class="text-extra-bold">This is extra bold text.</p>
     <p class="text-italic">This is italic text.</p>
     <p class="default-text">
       This is written with system sans-serif font and this is
