@@ -16,7 +16,6 @@
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
-      onload="document.body.classList.add('font-loaded')"
     />
     <style>
       @font-face {
@@ -30,24 +29,22 @@
           U+2212, U+2215, U+FEFF, U+FFFD;
       }
 
-      body {
-        /* Default system font styles matching with custom font */
-        font-family: arial;
-        font-size: 16px;
-        line-height: 1.6;
-        letter-spacing: 0.45px;
-        word-spacing: 0.15px;
+      @font-face {
+        /* Create fallback system font font-face with styles matching with custom font */
+        font-family: "Inter-fallback";
+        size-adjust: 107.00%;
+        ascent-override: 90%;
+        src: local("Arial");
       }
 
-      body.font-loaded {
-        /* Resetting styles when custom font is loaded */
-        font-family: 'Inter', arial;
-        letter-spacing: initial;
-        word-spacing: initial;
+      body {
+        font-family: "Inter", 'Inter-Fallback';
+        font-size: 16px;
+        line-height: 1.6;
       }
 
       .default-text {
-        font-family: sans-serif;
+        font-family: arial;
         border: 3px dashed grey;
         padding: 15px;
       }
