@@ -16,13 +16,14 @@
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
+      onload="document.body.classList.add('font-loaded')"
     />
     <style>
       @font-face {
         font-family: "Inter";
         font-style: oblique 0deg 10deg;
         font-weight: 100 900;
-        font-display: swap;
+        font-display: fallback;
         src: url("./fonts/inter-latin-variable-full-font.woff2") format("woff2");
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
           U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
@@ -67,11 +68,6 @@
         font-style: italic;
       }
     </style>
-    <script>
-      document.querySelector('#font-preloader').addEventListener('load', function () {
-        document.body.classList.add('font-loaded');
-      });
-    </script>
   </head>
   <body>
     <h1>Font Loading Optimization Exercise</h1>
