@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Inline styles + Preload self hosted variable font + font-display - Font Loading Exercise</title>
+    <base
+      href="/html-and-css/font-loading-optimization/self-host-all-optimization-with-reduced-fout/"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link
+      id="font-preloader"
+      rel="preload"
+      href="./fonts/inter-latin-variable-full-font.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <style>
+      @font-face {
+        font-family: "Inter";
+        font-style: oblique 0deg 10deg;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("./fonts/inter-latin-variable-full-font.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      body {
+        /* Default system font styles matching with custom font */
+        font-family: arial;
+        font-size: 16px;
+        line-height: 1.6;
+        letter-spacing: 0.45px;
+        word-spacing: 0.15px;
+      }
+
+      body.font-loaded {
+        /* Resetting styles when custom font is loaded */
+        font-family: 'Inter', arial;
+        letter-spacing: initial;
+        word-spacing: initial;
+      }
+
+      .default-text {
+        font-family: sans-serif;
+        border: 3px dashed grey;
+        padding: 15px;
+      }
+
+      .text-light {
+        font-weight: 300;
+      }
+
+      .text-bold {
+        font-weight: 700;
+      }
+
+      .text-extra-bold {
+        font-weight: 900;
+      }
+
+      .text-italic {
+        font-style: italic;
+      }
+    </style>
+    <script>
+      document.querySelector('#font-preloader').addEventListener('load', function () {
+        document.body.classList.add('font-loaded');
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Font Loading Optimization Exercise</h1>
+    <p>
+      In this exercise we will try to optimise font loading in our website for
+      better UX.
+    </p>
+    <p class="text-light">This is light text</p>
+    <p class="text-bold">This is bold text.</p>
+    <p class="text-extra-bold">This is extra bold text.</p>
+    <p class="text-italic">This is italic text.</p>
+    <p class="default-text">
+      This is written with system sans-serif font and this is
+      <a href="https://www.google.com">Test link</a>. <br />All other text is in
+      custom font: <b>Inter</b>
+    </p>
+    <h2 class="text-bold text-italic">Bold Italic Title</h2>
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1632861580980-ba4bc45c9076?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+        alt="Image 1"
+        width="100"
+        height="151"
+      />
+    </div>
+    <h2>Dummy Text</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+      pulvinar ex tortor, a euismod nisi dictum id. Vestibulum vitae luctus
+      diam. Cras hendrerit vulputate enim, nec sagittis elit sodales quis. Nulla
+      a ante quis erat pellentesque gravida. Morbi eleifend turpis suscipit nisl
+      lobortis condimentum eget sed dolor. Donec ligula diam, bibendum vel
+      tincidunt eget, lobortis sit amet metus. Quisque tincidunt, sapien aliquam
+      mattis viverra, massa sapien pulvinar ipsum, efficitur aliquet nisl metus
+      eu est. Sed justo tortor, eleifend eget sem quis, tempor consectetur
+      metus. Curabitur eu lobortis velit. Donec at lacinia lectus.
+    </p>
+    <p>
+      Nullam vehicula turpis nec nibh efficitur porta. Nullam tincidunt rutrum
+      ligula, in hendrerit nisi pharetra ut. Vivamus nec libero ac risus congue
+      congue in gravida augue. Nam tempus id lorem et rhoncus. Ut tempor nunc
+      nisl, blandit auctor risus maximus et. Nam vitae arcu quis nulla bibendum
+      hendrerit et pharetra sem. Donec ut elit vel odio posuere accumsan. Mauris
+      finibus, tortor ac hendrerit mattis, magna metus gravida nisi, nec
+      imperdiet eros justo et felis. Aliquam ligula quam, consequat at eros vel,
+      porttitor imperdiet neque. Mauris augue sem, consequat et metus nec,
+      rhoncus fringilla sem. Proin a dictum dui.
+    </p>
+    <p>
+      Suspendisse porttitor sed risus a semper. Etiam ac magna efficitur,
+      scelerisque neque at, maximus nulla. Donec nec dignissim mauris.
+      Suspendisse tincidunt dui quis lectus dictum sagittis. Vivamus sed turpis
+      consequat, hendrerit nulla a, venenatis lacus. Fusce maximus enim ac
+      efficitur faucibus. Pellentesque enim purus, varius non tortor lobortis,
+      tincidunt tincidunt lorem. Suspendisse vel quam pulvinar, viverra nisi eu,
+      fringilla dolor. Vivamus quis neque quis lectus dictum pretium.
+    </p>
+    <p>
+      Mauris quis lacus nulla. Aenean quis finibus urna. Proin porta sem quis
+      quam egestas, quis tristique dui condimentum. Praesent in justo metus.
+      Maecenas congue at nisi et ullamcorper. Donec semper, leo vel sagittis
+      luctus, dolor massa molestie urna, eu hendrerit eros ante ac sapien.
+      Quisque blandit ante sem, a gravida dolor finibus eget. Aliquam pulvinar
+      leo non eros tincidunt, vitae blandit justo aliquet. Orci varius natoque
+      penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam eu
+      consectetur arcu. Mauris venenatis efficitur aliquam. Etiam rutrum pretium
+      lectus, a maximus ante.
+    </p>
+    <p>
+      Nullam in sapien at diam facilisis consequat. Aliquam vehicula commodo
+      nibh, vel suscipit lacus pharetra rhoncus. Vestibulum ante ipsum primis in
+      faucibus orci luctus et ultrices posuere cubilia curae; Sed at pulvinar
+      nibh. Vestibulum a varius nibh, ut luctus est. Morbi non nunc sit amet
+      massa tincidunt convallis sodales ac tortor. Vestibulum eleifend efficitur
+      dictum. In tincidunt lectus a nisi bibendum, ut lobortis felis tincidunt.
+      Praesent aliquet diam eu lacus bibendum interdum in quis nulla. Phasellus
+      eu odio eu nibh interdum mollis eleifend nec nunc. Nulla aliquet enim dui,
+      eu auctor ligula consequat a. Sed nec varius odio, id viverra justo.
+      Aenean sit amet sodales magna. Quisque vel augue at libero condimentum
+      volutpat in eget erat. Etiam pellentesque dui sed vestibulum finibus.
+    </p>
+  </body>
+</html>
