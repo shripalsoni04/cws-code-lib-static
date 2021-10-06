@@ -50,16 +50,22 @@
       }
     </style>
     <script>
-      var font = new FontFace("Inter", "url(./fonts/inter-latin-variable-full-font.woff2)", {
+      const font = new FontFace("Inter", "url(./fonts/inter-latin-variable-full-font.woff2)", {
         style: "oblique 0deg 10deg",
         weight: "100 900",
         display: 'fallback'
       });
 
+      let isFontDisplayTimeoutDone = false;
+      const fallbackTimeout = setTimeout(function() {
+        isFontDisplayTimeoutDone = true;
+      }, 3000);
+
       font.load().then(function () {
-        console.log('font loaded');
         document.fonts.add(font);
-        document.body.classList.add('font-loaded');
+        if (!isFontDisplayTimeoutDone) {
+          document.body.classList.add('font-loaded');
+        }
       });
     </script>
   </head>
