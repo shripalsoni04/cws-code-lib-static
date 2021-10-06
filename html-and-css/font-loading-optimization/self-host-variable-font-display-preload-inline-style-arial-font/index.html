@@ -3,14 +3,13 @@
   <head>
     <title>Inline styles + Preload self hosted variable font + font-display - Font Loading Exercise</title>
     <base
-      href="/html-and-css/font-loading-optimization/self-host-all-optimization-with-reduced-fout/"
+      href="/html-and-css/font-loading-optimization/self-host-variable-font-display-preload-inline-style-arial-font/"
     />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <link
-      id="font-preloader"
       rel="preload"
       href="./fonts/inter-latin-variable-full-font.woff2"
       as="font"
@@ -28,21 +27,12 @@
           U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
           U+2212, U+2215, U+FEFF, U+FFFD;
       }
-
-      @font-face {
-        /* Create fallback system font font-face with styles matching with custom font */
-        font-family: "Inter-fallback";
-        size-adjust: 107.00%;
-        ascent-override: 90%;
-        src: local("Arial");
-      }
-
       body {
-        font-family: "Inter", 'Inter-Fallback';
+        font-family: "Inter", Arial, sans-serif;
       }
 
       .default-text {
-        font-family: Arial;
+        font-family: Arial, sans-serif;
         border: 3px dashed grey;
         padding: 15px;
       }
