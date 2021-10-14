@@ -22,12 +22,20 @@
           U+2212, U+2215, U+FEFF, U+FFFD;
       }
 
+      @font-face {
+        /* Create fallback system font font-face with styles matching with custom font */
+        font-family: "Inter-fallback";
+        size-adjust: 107.00%;
+        ascent-override: 90%;
+        src: local("Arial");
+      }
+
       body {
-        font-family: "Inter", sans-serif;
+        font-family: "Inter", 'Inter-Fallback';
       }
 
       .default-text {
-        font-family: sans-serif;
+        font-family: Arial;
         border: 3px dashed grey;
         padding: 15px;
       }
